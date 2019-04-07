@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DTO\CalculationRequest;
-use App\Service\SimilarityStringCalculator;
+use App\Service\StringCalculatorInterface;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ use Illuminate\Http\Request as HttpRequest;
 final class CalculateSimilarityController
 {
     /**
-     * @var SimilarityStringCalculator
+     * @var StringCalculatorInterface
      */
     private $stringCalculator;
     /**
@@ -24,7 +24,7 @@ final class CalculateSimilarityController
      */
     private $viewFactory;
 
-    public function __construct(ViewFactory $viewFactory, SimilarityStringCalculator $stringCalculator)
+    public function __construct(ViewFactory $viewFactory, StringCalculatorInterface $stringCalculator)
     {
         $this->viewFactory = $viewFactory;
         $this->stringCalculator = $stringCalculator;
